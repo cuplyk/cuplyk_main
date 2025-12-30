@@ -1,0 +1,240 @@
+{% extends '_base.html' %}
+{% load i18n %}
+
+{% block title %}Cuplyk | {% trans "The Universal Layer for Your IT Needs" %}{% endblock %}
+
+{% block extra_head %}
+<style>
+    /* Page-specific overrides for a full experience */
+    body {
+        background-color: #020617; /* Very dark slate */
+        background-image: var(--cosmos-bg-gradient);
+        background-attachment: fixed;
+    }
+    .main-content {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    
+    #hero-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0; /* Behind content but above background */
+        pointer-events: none; /* Let clicks pass through, but we can track mouse on window */
+    }
+
+    /* Ensure content sits above canvas */
+    .hero-content-wrapper {
+        position: relative;
+        z-index: 10;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="hero-cosmos">
+    <!-- 3D Particle Network Canvas -->
+    <canvas id="hero-particles"></canvas>
+
+    <div class="container hero-content-wrapper">
+        <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+            <p class="text-gradient" style="font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">
+                {% trans "Cuplyk" %}
+            </p>
+            <h1 class="hero-title" style="font-size: 4.5rem; margin-bottom: 1.5rem; line-height: 1.1;">
+                {% trans "The Universal Layer for Your IT Needs." %}
+            </h1>
+            <h2 style="font-size: 1.5rem; color: var(--text-secondary); margin-bottom: 2.5rem; font-weight: 400; max-width: 700px; margin-left: auto; margin-right: auto;">
+                {% trans "Seamlessly integrating local support with global cloud infrastructure. The connectivity you need, the reliability you trust." %}
+            </h2>
+            <div class="hero-actions">
+                <a href="#" class="btn btn-glow" style="padding: 1rem 2rem; font-size: 1.1rem;">
+                    {% trans "Start Building" %}
+                </a>
+                <a href="#" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1.1rem; backdrop-filter: blur(10px); background: rgba(255,255,255,0.05);">
+                    {% trans "Explore Services" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="padding-bottom: 6rem;">
+    <!-- Ecosystem/Features Grid -->
+    <div class="grid-3">
+        <!-- Feature 1: Local Support -->
+        <div class="glass-card">
+            <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">{% trans "Global Reach" %}</h3>
+            <p style="margin-bottom: 0; color: #94a3b8;">
+                {% trans "Access a global network of IT solutions while maintaining localized control. Scale your business without borders." %}
+            </p>
+        </div>
+
+        <!-- Feature 2: All-in-One -->
+        <div class="glass-card">
+            <div class="feature-icon" style="color: #a855f7;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">{% trans "Hybrid Solutions" %}</h3>
+            <p style="margin-bottom: 0; color: #94a3b8;">
+                {% trans "Seamlessly integrate on-premise infrastructure with cloud capabilities. The best of both worlds, unified." %}
+            </p>
+        </div>
+
+        <!-- Feature 3: Local Support -->
+        <div class="glass-card">
+            <div class="feature-icon" style="color: #22c55e;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .57 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.05 12.05 0 0 0 2.81.57A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff;">{% trans "Local Support" %}</h3>
+            <p style="margin-bottom: 0; color: #94a3b8;">
+                {% trans "Expert assistance right where you need it. We provide personalized, local IT support for your mission-critical systems." %}
+            </p>
+        </div>
+    </div>
+
+    <!-- Connected Section -->
+    <div style="margin-top: 8rem; text-align: center;">
+        <p class="text-gradient" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">{% trans "TRUSTED BY INDUSTRY LEADERS" %}</p>
+        <h2 class="section-title">{% trans "The Foundation for the Future Economy" %}</h2>
+        <div style="display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap; opacity: 0.6; margin-top: 3rem;">
+           <span style="font-size: 1.5rem; font-weight: 700; color: #fff;">TECHCORP</span>
+           <span style="font-size: 1.5rem; font-weight: 700; color: #fff;">NEXUS</span>
+           <span style="font-size: 1.5rem; font-weight: 700; color: #fff;">SOLARIS</span>
+           <span style="font-size: 1.5rem; font-weight: 700; color: #fff;">ORION</span>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="glass-card" style="margin-top: 8rem; text-align: center; position: relative; overflow: hidden; padding: 4rem 2rem;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 100% 100%, rgba(99, 102, 241, 0.1), transparent 50%); pointer-events: none;"></div>
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: #fff;">{% trans "Ready to Transform Your Business?" %}</h2>
+        <p style="max-width: 600px; margin: 0 auto 2rem; color: #94a3b8;">
+            {% trans "Join the growing network of businesses powered by Cuplyk's hybrid solutions." %}
+        </p>
+        <a href="#" class="btn btn-glow" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+            {% trans "Get Started Today" %}
+        </a>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    (function() {
+        const canvas = document.getElementById('hero-particles');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        const particleCount = 60;
+        const connectionDistance = 150;
+        const mouseDistance = 200;
+
+        let mouse = { x: null, y: null };
+
+        function resize() {
+            width = canvas.width = canvas.parentElement.offsetWidth;
+            height = canvas.height = canvas.parentElement.offsetHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        window.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        window.addEventListener('mouseleave', () => {
+             mouse.x = null; 
+             mouse.y = null;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(99, 102, 241, 0.5)';
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            resize();
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+            animate();
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                // Connect to other particles
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(148, 163, 184, ${1 - distance / connectionDistance})`; // fading slate line
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+
+                // Connect to mouse
+                if (mouse.x != null) {
+                    const dx = particles[i].x - mouse.x;
+                    const dy = particles[i].y - mouse.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < mouseDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(99, 102, 241, ${1 - distance / mouseDistance})`; // fading indigo line
+                        ctx.lineWidth = 1.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        // Initialize only if canvas exists
+        if (canvas) {
+            init();
+        }
+    })();
+</script>
+{% endblock %}
